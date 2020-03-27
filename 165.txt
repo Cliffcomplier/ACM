@@ -1,0 +1,123 @@
+#include<iostream>
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+using namespace std;
+#define scanf scanf_s
+#define printf printf_s
+typedef struct tree_node {
+	int nodei;
+	int nodej;
+	double dist;
+	tree_node*right;
+	tree_node*left;
+	tree_node*parent;
+}heap;
+typedef struct node {
+	double dist;
+	int no;
+	node*next;
+}Graph;
+Graph*H[200];
+int main() {
+	int n = 1;
+	int T = 1;
+	while (n) {
+		memset(H, 0, sizeof H);
+
+		scanf("%d", &n);
+		if (n == 0)
+			break;
+		double x[200];
+		double y[200];
+		heap*head = new heap;
+		memset(head, 0, sizeof head);
+		//Step1£» input the coordinante matrix and build the graph
+		for (int i = 0; i < n; i++) {
+			scanf("%lf %lf", &x[i], &y[i]);
+			for (int j = i - 1; j > -1; j--) {
+				double Dist = sqrt((x[j] - x[i])*(x[j] - x[i]) + (y[j] - y[i])*(y[j] - y[i]));
+				if (!head) {
+					head->dist = Dist;
+					head->nodei = i;
+					head->nodej = j;
+				}
+				else {
+					heap*hp = head;
+					heap*par;
+					while (hp) {
+						if (hp->dist > Dist) {
+							hp = hp->left;
+							if (!hp->left) {
+								par = hp;
+							}
+						}
+						else {
+							hp = hp->right;
+							if (hp->right) {
+								par = hp;
+							}
+						}
+					}
+					hp->dist = Dist;
+					hp->nodei = i;
+					hp->nodej = j;
+					hp->parent = par;
+				}
+				
+				
+				Graph*tempi = new Graph;
+				tempi->dist = Dist;
+				tempi->no = j;
+				tempi->next = H[i];
+				H[i] = tempi;
+				Graph*tempj = new Graph;
+				tempj->dist = Dist;
+				tempj->no = i;
+				tempj->next = H[j];
+				H[j] = tempj;
+
+			}
+		}
+		//Step1: End
+		//Print the Graph (Test only)
+		
+		for (int i = 0; i < n; i++) {
+			cout << i;
+			for (Graph*p = H[i]; p;p=p->next) {
+			cout<<"->";
+				cout << p->no << "(" << p->dist << ")";
+			}
+			cout << endl;
+		}
+		//Step 2 Find the local minimal one-by-one
+		int max = 0;	
+
+		//Setp2: End
+		printf("Scenario #%d\n", T);
+		printf("Frog Distance = %.3lf\n", max);
+		T++;
+		printf("\n");
+		//Intermediate Step: Traverse the tree
+		cout << "Print the Heap\n";
+		heap*pp = head;
+		while (pp->right) {
+			pp = pp->right;
+		}
+		cout << pp->dist<<"->";
+		if (!pp->right &&!pp->left) {
+			heap*t = pp->parent;
+			t->right = NULL;
+			delete pp;
+		}
+		else {
+			while () {
+
+			}
+		}
+		//End
+	}
+	
+
+	system("pause");
+}

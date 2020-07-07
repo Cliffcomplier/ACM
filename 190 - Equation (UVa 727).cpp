@@ -1,3 +1,14 @@
+/*****************************************
+ * (This comment block is added by the Judge System)
+ * Submission ID: 77221
+ * Submitted at:  2019-02-02 04:33:14
+ *
+ * User ID:       335
+ * Username:      54780828
+ * Problem ID:    190
+ * Problem Name:  Equation (UVa 727)
+ */
+
 #include<iostream>
 #include<stdio.h>
 #include<stack>
@@ -109,4 +120,3 @@ int main()
 	return 0;
 
 }
-

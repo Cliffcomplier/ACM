@@ -1,3 +1,14 @@
+/*****************************************
+ * (This comment block is added by the Judge System)
+ * Submission ID: 77229
+ * Submitted at:  2019-02-02 12:32:53
+ *
+ * User ID:       335
+ * Username:      54780828
+ * Problem ID:    381
+ * Problem Name:  Hexadecimal Calculation
+ */
+
 #include<iostream>
 #include<stdio.h>
 #include<stack>
@@ -158,4 +169,3 @@ int main() {
 
 
 }
-

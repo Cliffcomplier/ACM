@@ -1,3 +1,13 @@
+/*****************************************
+ * (This comment block is added by the Judge System)
+ * Submission ID: 77103
+ * Submitted at:  2019-01-31 20:40:28
+ *
+ * User ID:       335
+ * Username:      54780828
+ * Problem ID:    27
+ * Problem Name:  Gems in the maze
+ */
 
 #include<iostream>
 
@@ -50,9 +60,3 @@ int main() {
 	}
 	
 }
-
-
-
-
-
-

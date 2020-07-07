@@ -1,0 +1,59 @@
+#include<iostream>
+#include<string.h>
+#include<stdio.h>
+#include<queue>
+#include<vector>
+#include<string>
+using namespace std;
+
+string s;
+bool match(int i,int j) {
+	if ((s[i] == '(') && (s[j] == ')'))
+		return true;
+	if ((s[i] == '[') && (s[j] == ']'))
+		return true;
+	return false;
+
+}
+int d[120][120];
+void dp(int n) {
+	for (int i = 0; i < n; i++) {
+		d[i][i] = 1;
+		d[i+1][i] = 0;
+	}
+	for (int i = n - 2; i >= 0; i--) {
+		for (int j = i + 1; j < n; j++) {
+			d[i][j] = n;
+			if (match(i, j)) d[i][j] = min(d[i][j], d[i + 1][j - 1]);
+			for (int k = i; k < j; k++) {
+				d[i][j] = min(d[i][j],d[i][k]+d[k+1][j]);
+			}
+	
+		}
+	}
+}
+int main() {
+
+	int cas = 0;
+	scanf("%d",&cas);
+	string sp;
+	getline(cin, sp);
+
+	bool falg=false;
+	
+	for (int i = 0; i < cas;i++) {
+		
+		memset(d,0,sizeof d);
+		s.clear();
+
+		getline(cin, sp);
+		getline(cin, s);
+
+		int n = s.size();
+		dp(n);
+		printf("%d\n",n+d[0][n-1]);
+		if (i != cas - 1) {
+			printf("\n");
+		}
+	}
+}

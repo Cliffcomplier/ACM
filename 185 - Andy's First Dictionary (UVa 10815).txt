@@ -1,0 +1,48 @@
+/*****************************************
+ * (This comment block is added by the Judge System)
+ * Submission ID: 85185
+ * Submitted at:  2019-05-04 14:15:11
+ *
+ * User ID:       335
+ * Username:      54780828
+ * Problem ID:    185
+ * Problem Name:  Andy's First Dictionary (UVa 10815)
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
+#include <string>
+#include<vector>
+#include<stack>
+#include <map>
+#include <set>
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+set<string> dict;
+int main(){
+	string s, seg;
+	while(cin>>s){
+		for(int i=0;i<s.length();i++){
+			if(isalpha(s[i])){
+			
+				if ((s[i] >= 'A') && (s[i] <= 'Z')) {
+					s[i] = s[i] - 'A' + 'a';
+				}
+			}
+			else
+				s[i] = ' ';	
+		}
+		stringstream ss(s);
+		while(ss>>seg)
+			dict.insert(seg);
+		
+	}
+		
+	for (set<string>::iterator it = dict.begin(); it != dict.end(); ++it) {
+		cout << *it<<endl;
+	}
+
+}

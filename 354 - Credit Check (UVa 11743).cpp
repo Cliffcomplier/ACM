@@ -1,3 +1,14 @@
+/*****************************************
+ * (This comment block is added by the Judge System)
+ * Submission ID: 77096
+ * Submitted at:  2019-01-31 20:18:50
+ *
+ * User ID:       335
+ * Username:      54780828
+ * Problem ID:    354
+ * Problem Name:  Credit Check (UVa 11743)
+ */
+
 #include<iostream>
 using namespace std;
 
